@@ -2,27 +2,6 @@
 // FOUNDATION SETTINGS
 //
 
-// COLORS
-$white: #fff;
-$palegrey: #eaeff2;
-$lightgrey: #cfd4d8;
-$mediumgrey: #949ca1;
-$darkgrey: #455560;
-$black: #222;
-
-// primary
-$blue: #13b5ea;
-$darkblue: #0079c1;
-$purple: #362c66;
-$lightpurple: #7473a9;
-
-// secondary
-$orange: #f05133;
-$lime: #d6e03d;
-$turquoise: #9ed8d5;
-$tangerine: #f8971d;
-
-
 // This is the default html and body font-size for the base rem value.
 $rem-base: 16px;
 
@@ -1216,41 +1195,3 @@ $topbar-menu-link-transform: uppercase;
 
 // IMPORT FOUNDATION
 @import 'foundation';
-
-
-// SQUARE ROOT THEME
-body {
-  background: $purple;
-  color: $white;
-  margin: 0;
-}
-
-.container {
-  @extend grid-row;
-  margin-top: 2em;
-}
-
-.header h1 {
-  float: left;
-}
-
-nav {
-  float: right;
-  margin-top: 1em;
-  .nav-item {
-    margin-right: 1em;
-  }
-}
-
-.footer {
-  background: $black;
-  color: $white;
-  padding-top: 1em;
-}
-
-// Button Colors
-
-.button {
-  @include button($bg: $blue);
-  text-transform: uppercase;
-}
