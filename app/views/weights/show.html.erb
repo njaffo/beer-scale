@@ -1,0 +1,9 @@
+<p>
+  <strong>Id:</strong>
+  <%= @weight.id %>
+  <strong>Raw:</strong>
+  <%= @weight.raw %>
+</p>
+
+<%= link_to 'Edit', edit_weight_path(@weight), class: "button tiny" %>
+<%= link_to 'Back', weights_path, class: "button tiny" %>

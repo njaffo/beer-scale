@@ -1,0 +1,32 @@
+<%= form_for(@weight) do |f| %>
+<div class="row">
+  <% if @weight.errors.any? %>
+    <div id="error_explanation small-8 columns">
+      <h2><%= pluralize(@weight.errors.count, "error") %> prohibited this weight from being saved:</h2>
+
+      <ul>
+      <% @weight.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="field small-8">
+    <div class="row">
+      <div class="small-3 columns">
+      <%= f.label :raw, class: "right inline" %>
+      </div>
+      <div class="small-9 columns">
+      <%= f.text_field :raw %>
+      </div>
+    </div>
+  </div>
+  <div class="actions small-8">
+    <%= f.submit class: "button" %>
+  </div>
+</div>
+
+<% end %>
