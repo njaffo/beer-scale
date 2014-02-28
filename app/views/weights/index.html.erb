@@ -1,5 +1,8 @@
 <h1>Listing weights</h1>
 
+<div id="weights_chart">
+</div>
+
 <table>
   <thead>
     <tr>
@@ -21,6 +24,10 @@
     <% end %>
   </tbody>
 </table>
+
+<script>
+var chart_data = [<%= @weights.map { |w| w.raw }.join(',')%>]
+</script>
 
 <br>
 
