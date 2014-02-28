@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 1.2'
 
 # Heroku
 gem 'rails_12factor', group: :production
+gem 'unicorn'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
