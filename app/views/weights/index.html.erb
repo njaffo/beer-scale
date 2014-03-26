@@ -27,7 +27,7 @@
 </table>
 
 <script>
-var chart_data = [<%= @weights.map { |w| "["+w.created_at+","+w.raw+"]" }.join(',')%>]
+var chart_data = [<%= @weights.map { |w| "["+w.created_at.to_s+","+w.raw+"]" }.join(',')%>]
 </script>
 
 <br>
