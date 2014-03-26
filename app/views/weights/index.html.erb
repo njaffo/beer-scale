@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @weights.each do |weight| %>
+    <% @weights_last.each do |weight| %>
       <tr>
         <td><%= weight.raw %></td>
         <td><%= weight.created_at %></td>
@@ -27,7 +27,7 @@
 </table>
 
 <script>
-var chart_data = [<%= @weights.map { |w| w.raw }.join(',')%>]
+var chart_data = [<%= @weights.map { |w| "["+w.created_at+","+w.raw+"]" }.join(',')%>]
 </script>
 
 <br>

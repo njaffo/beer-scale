@@ -6,9 +6,23 @@ jQuery ->
   $('#weights_chart').highcharts({
     chart:
       renderTo: "weights_chart"
-      type: "line"
+      type: "scatter"
     title:
       text: "Beer Over Time"
+    xAxis: {
+      title: {
+        enabled: true,
+        text: 'Date'
+      },
+      startOnTick: true,
+      endOnTick: true,
+      showLastLabel: true
+    },
+    yAxis: {
+      title: {
+        text: 'Beer'
+      }
+    },
     series: [{
         name: "Raw Weight"
         data: chart_data
