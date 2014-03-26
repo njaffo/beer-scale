@@ -10,11 +10,10 @@ jQuery ->
     title:
       text: "Beer Over Time"
     xAxis: {
-      type: 'datetime',
-      dateTimeLabelFormats: { // don't display the dummy year
-        month: '%e. %b',
-        year: '%b'
-      }
+      title: {
+        enabled: true,
+        text: 'Date'
+      },
     },
     yAxis: {
       title: {
