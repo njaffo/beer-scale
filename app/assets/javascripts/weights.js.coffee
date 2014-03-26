@@ -14,9 +14,11 @@ jQuery ->
         enabled: true,
         text: 'Date'
       },
-      startOnTick: true,
-      endOnTick: true,
-      showLastLabel: true
+      type: 'datetime',
+      dateTimeLabelFormats: { // don't display the dummy year
+        month: '%e. %b',
+        year: '%b'
+      }
     },
     yAxis: {
       title: {
