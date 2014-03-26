@@ -14,6 +14,11 @@ jQuery ->
         enabled: true,
         text: 'Date'
       },
+      type: 'datetime',
+      dateTimeLabelFormats: {
+        month: '%e. %b',
+        year: '%b'
+      }
     },
     yAxis: {
       title: {
