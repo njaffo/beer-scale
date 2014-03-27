@@ -6,7 +6,7 @@ jQuery ->
   $('#weights_chart').highcharts({
     chart:
       renderTo: "weights_chart"
-      type: "scatter"
+      type: "spline"
     title:
       text: "Beer Over Time"
     xAxis: {
