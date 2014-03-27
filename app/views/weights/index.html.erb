@@ -17,7 +17,7 @@
   <tbody>
     <% @weights_last.each do |weight| %>
       <tr>
-        <td><%= ((weight.raw - 291)*8)/(2.749 * 8.3454) %></td>
+        <td><%= ((weight.raw - 291)*8)/(2.749 * 8.3454) - 6 %></td>
         <td><%= weight.raw %></td>
         <td><%= weight.created_at %></td>
         <td><%= link_to 'Show', weight %></td>
