@@ -30,9 +30,11 @@ class WeightsController < ApplicationController
     p request.raw_post
     @weight = Weight.new(weight_params)
 
+    logger.info " === Proof that logging.info from app is working"
+    puts(" === Proof that puts from app is working")
+
     respond_to do |format|
 
-      puts(" === Proof that logging from app is working")
       if WeightDataSingleton.instance.nil?
         puts("     === WeightDataSingleton.instance is nil")
       end
