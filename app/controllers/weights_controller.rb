@@ -1,5 +1,6 @@
 class WeightsController < ApplicationController
 
+  before_action :load_weight_data_feed_info
   before_action :set_weight, only: [:show, :edit, :update, :destroy]
   protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/json' }
 
@@ -30,19 +31,8 @@ class WeightsController < ApplicationController
     p params
     p request.raw_post
     @weight = Weight.new(weight_params)
-    @weight_data_info = WeightDataFeedInfo.first
-    weight_last = Weight.last
 
     respond_to do |format|
-      if @weight_data_info.nil?
-        @weight_data_info = WeightDataFeedInfo.new
-        @weight_data_info.last_stored_raw = weight_last.raw
-        @weight_data_info.last_stored_created_at = weight_last.created_at
-        @weight_data_info.last_received_raw = weight_last.raw
-        @weight_data_info.last_received_created_at = weight_last.created_at
-        @weight_data_info.save
-      end
-
       #if @weight.save
       #  format.html { redirect_to @weight, notice: 'Weight was successfully created.' }
       #  format.json { render action: 'show', status: :created, location: @weight }
@@ -103,6 +93,19 @@ class WeightsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_weight
       @weight = Weight.find(params[:id])
+    end
+
+    def load_weight_data_feed_info
+      @weight_data_info = WeightDataFeedInfo.first
+      if @weight_data_info.nil?
+        weight_last = Weight.last
+        @weight_data_info = WeightDataFeedInfo.new
+        @weight_data_info.last_stored_raw = weight_last.raw
+        @weight_data_info.last_stored_created_at = weight_last.created_at
+        @weight_data_info.last_received_raw = weight_last.raw
+        @weight_data_info.last_received_created_at = weight_last.created_at
+        @weight_data_info.save
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
