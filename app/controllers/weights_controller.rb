@@ -30,7 +30,7 @@ class WeightsController < ApplicationController
     p params
     p request.raw_post
     @weight = Weight.new(weight_params)
-    @weight_data_info = BeerScale::WeightDataInfo.first
+    @weight_data_info = WeightDataFeedInfo.first
     weight_last = Weight.last
 
     logger.info " === Proof that logging.info from app is working"
@@ -41,7 +41,7 @@ class WeightsController < ApplicationController
       if @weight_data_info.nil?
         puts("     === WeightDataInfo.first is nil")
         puts(" === Attempting to set data in WeightDataSingleton")
-        @weight_data_info = BeerScale::WeightDataInfo.new
+        @weight_data_info = WeightDataFeedInfo.new
         @weight_data_info.last_stored_raw = weight_last.raw
         @weight_data_info.last_stored_created_at = weight_last.created_at
         @weight_data_info.last_received_raw = weight_last.raw
