@@ -49,7 +49,12 @@
 </table>
 <script>
   // chart data is for highcharts. data now in pints
-  var chart_data = [<%= @weights.map { |w| "["+w.created_at.to_i.to_s+"000,"+w.get_beer_count.to_s+"]" }.join(',') %>,[<%= Time.now.to_i.to_s %>,<%= @weight_data_info.last_stored_raw.to_s %>]]
+  <%
+    weight_now = Weight.new
+    weight_now.raw = @weight_data_info.last_stored_raw
+    pints_now = weight_now.get_beer_count.to_s
+  %>
+  var chart_data = [<%= @weights.map { |w| "["+w.created_at.to_i.to_s+"000,"+w.get_beer_count.to_s+"]" }.join(',') %>,[<%= Time.now.to_i.to_s %>000,<%= pints_now %>]]
 </script>
 
 <br>
