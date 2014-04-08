@@ -2,6 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# TODO Need to work with the chart on date formatting, creating warning zone color, starting y axis at 0 pints
+
 jQuery ->
   $('#weights_chart').highcharts({
     chart:
@@ -22,7 +24,7 @@ jQuery ->
     },
     yAxis: {
       title: {
-        text: 'Beer'
+        text: 'Pints'
       }
     },
     series: [{
