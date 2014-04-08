@@ -43,12 +43,32 @@ class WeightsController < ApplicationController
         @weight_data_info.save
       end
 
-      if @weight.save
-        format.html { redirect_to @weight, notice: 'Weight was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @weight }
+      #if @weight.save
+      #  format.html { redirect_to @weight, notice: 'Weight was successfully created.' }
+      #  format.json { render action: 'show', status: :created, location: @weight }
+      #else
+      #  format.html { render action: 'new' }
+      #  format.json { render json: @weight.errors, status: :unprocessable_entity }
+      #end
+
+      # save weight if new is lower than last stored or if new is greater than 2x perceived amplitude of about 6
+      if @weight.raw < @weight_data_info.last_stored_raw or (@weight.raw - @weight_data_info.last_stored_raw) > 12
+        # perform weight.save and update last stored and last received
+        if @weight.save
+          format.html { redirect_to @weight, notice: 'Weight was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @weight }
+          @weight_data_info.last_stored_raw = @weight.raw
+          @weight_data_info.last_stored_created_at = @weight.created_at
+          @weight_data_info.last_received_raw = @weight.raw
+          @weight_data_info.last_received_created_at = @weight.created_at
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @weight.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render action: 'new' }
-        format.json { render json: @weight.errors, status: :unprocessable_entity }
+        # update last received, need to fake created_at field
+        @weight_data_info.last_received_raw = @weight.raw
+        @weight_data_info.last_received_created_at = Time.now
       end
     end
   end
