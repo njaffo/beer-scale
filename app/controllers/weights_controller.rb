@@ -61,6 +61,7 @@ class WeightsController < ApplicationController
           @weight_data_info.last_stored_created_at = @weight.created_at
           @weight_data_info.last_received_raw = @weight.raw
           @weight_data_info.last_received_created_at = @weight.created_at
+          @weight_data_info.save
         else
           format.html { render action: 'new' }
           format.json { render json: @weight.errors, status: :unprocessable_entity }
@@ -69,6 +70,7 @@ class WeightsController < ApplicationController
         # update last received, need to fake created_at field
         @weight_data_info.last_received_raw = @weight.raw
         @weight_data_info.last_received_created_at = Time.now
+        @weight_data_info.save
       end
     end
   end
