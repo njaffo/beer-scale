@@ -31,6 +31,13 @@ class WeightsController < ApplicationController
     @weight = Weight.new(weight_params)
 
     respond_to do |format|
+
+      #inception case after new or reboot of webserver
+      if WeightDataSingleton.instance.last_weight_stored == nil
+        WeightDataSingleton.instance.last_weight_stored = Weight.last
+        WeightDataSingleton.instance.last_weight_received = Weight.last
+      end
+
       if @weight.save
         format.html { redirect_to @weight, notice: 'Weight was successfully created.' }
         format.json { render action: 'show', status: :created, location: @weight }
