@@ -7,11 +7,13 @@
   <tbody>
     <tr>
       <td>Last data point received: </td>
-      <td><%= WeightDataFeedInfo.first.last_received_created_at %></td>
+      <td><%= @weight_data_info.last_received.raw%></td>
+      <td><%= @weight_data_info.last_received_created_at %></td>
     </tr>
     <tr>
       <td>Last data point stored: </td>
-      <td><%= WeightDataFeedInfo.first.last_stored_created_at %></td>
+      <td><%= @weight_data_info.last_stored.raw%></td>
+      <td><%= @weight_data_info.last_stored_created_at %></td>
     </tr>
     <tr>
       <td>The time is now: </td>
