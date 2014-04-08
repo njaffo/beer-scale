@@ -7,11 +7,11 @@
   <tbody>
     <tr>
       <td>Last data point received: </td>
-      <td><%= WeightDataSingleton.last_weight_received.created_at %></td>
+      <td><%= WeightDataSingleton.instance.last_weight_received.created_at %></td>
     </tr>
     <tr>
       <td>Last data point received: </td>
-      <td><%= WeightDataSingleton.last_weight_stored.created_at %></td>
+      <td><%= WeightDataSingleton.instance.last_weight_stored.created_at %></td>
     </tr>
     <tr>
       <td>The time is now: </td>
