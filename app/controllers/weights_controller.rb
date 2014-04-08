@@ -32,16 +32,18 @@ class WeightsController < ApplicationController
 
     respond_to do |format|
 
+      puts(" === Proof that logging from app is working")
+      if WeightDataSingleton.instance.nil?
+        puts("     === WeightDataSingleton.instance is nil")
+      end
       #singleton seed case after new or reboot of webserver
-      if WeightDataSingleton.instance.last_weight_stored == nil
+      if WeightDataSingleton.instance.last_weight_stored.nil?
         puts(" === Attempting to set data in WeightDataSingleton")
-        if WeightDataSingleton.instance == nil
-          puts("     === WeightDataSingleton.instance is nil")
-        end
+
         WeightDataSingleton.instance.last_weight_stored = Weight.last
         WeightDataSingleton.instance.last_weight_received = Weight.last
-        if WeightDataSingleton.instance.last_weight_stored == nil
-          puts("     === WeightDataSingleton.instance.last_weight_stored is nil")
+        if WeightDataSingleton.instance.last_weight_stored.nil?
+          puts("     === WeightDataSingleton.instance.last_weight_stored did not get set")
         else
           puts("     === WeightDataSingleton.instance.last_weight_stored.created_ad is on next line")
           puts(WeightDataSingleton.instance.last_weight_stored.to_s)
