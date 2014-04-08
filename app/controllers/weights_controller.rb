@@ -33,14 +33,8 @@ class WeightsController < ApplicationController
     @weight_data_info = WeightDataFeedInfo.first
     weight_last = Weight.last
 
-    logger.info " === Proof that logging.info from app is working"
-    puts(" === Proof that puts from app is working")
-
     respond_to do |format|
-
       if @weight_data_info.nil?
-        puts("     === WeightDataInfo.first is nil")
-        puts(" === Attempting to set data in WeightDataSingleton")
         @weight_data_info = WeightDataFeedInfo.new
         @weight_data_info.last_stored_raw = weight_last.raw
         @weight_data_info.last_stored_created_at = weight_last.created_at
@@ -48,7 +42,6 @@ class WeightsController < ApplicationController
         @weight_data_info.last_received_created_at = weight_last.created_at
         @weight_data_info.save
       end
-      puts(@weight_data_info);
 
       if @weight.save
         format.html { redirect_to @weight, notice: 'Weight was successfully created.' }
