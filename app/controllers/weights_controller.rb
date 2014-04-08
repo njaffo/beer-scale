@@ -1,4 +1,6 @@
 class WeightsController < ApplicationController
+  include WeightDataSingleton
+
   before_action :set_weight, only: [:show, :edit, :update, :destroy]
   protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/json' }
 
