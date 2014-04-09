@@ -8,7 +8,7 @@ class WeightsController < ApplicationController
   # GET /weights.json
   def index
     # @weights = Weight.all
-    @weights.where("created_at > 2014-04-09")
+    @weights = Weight.where("created_at > 2014-04-09")
     @weights_last = Weight.last(25)
   end
 
