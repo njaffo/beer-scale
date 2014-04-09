@@ -1,0 +1,25 @@
+<h1>Listing kegs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kegs.each do |keg| %>
+      <tr>
+        <td><%= link_to 'Show', keg %></td>
+        <td><%= link_to 'Edit', edit_keg_path(keg) %></td>
+        <td><%= link_to 'Destroy', keg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Keg', new_keg_path %>
