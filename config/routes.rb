@@ -1,5 +1,6 @@
 BeerScale::Application.routes.draw do
 
+  get "kegs/new"
   get "weight_data_feed_infos/new"
   root "home#index"
 
