@@ -12,6 +12,8 @@ jQuery ->
     title:
       text: "Beer Over Time"
     xAxis: {
+      min: 1396971604000,
+      max: 1400000000000,
       title: {
         enabled: true,
         text: 'Date'
