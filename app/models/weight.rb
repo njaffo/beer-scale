@@ -1,5 +1,7 @@
 class Weight < ActiveRecord::Base
 
+  belongs_to :keg
+
   def get_beer_count
 
     # TODO Need to validate the calibration from spreadsheet. I'm not sure I took into account the keg weight quite right.
