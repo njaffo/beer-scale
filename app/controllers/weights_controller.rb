@@ -9,7 +9,7 @@ class WeightsController < ApplicationController
   def index
     # @weights = Weight.all
     # @weights = Weight.where("created_at > '2014-04-09'")
-    @weights = Weight.where("created_at > '2014-04-09'").order(:created_by)
+    @weights = Weight.where("created_at > '2014-04-09'").order(:created_at)
     @weights_last = Weight.last(25)
   end
 
