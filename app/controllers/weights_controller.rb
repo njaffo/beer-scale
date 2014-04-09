@@ -8,7 +8,7 @@ class WeightsController < ApplicationController
   # GET /weights.json
   def index
     @weights = Weight.all
-    @weights_last = Weight.last(100)
+    @weights_last = Weight.last(25)
   end
 
   # GET /weights/1
