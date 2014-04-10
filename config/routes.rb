@@ -1,10 +1,10 @@
 BeerScale::Application.routes.draw do
 
-  get "kegs/new"
   get "weight_data_feed_infos/new"
   root "home#index"
 
   resources :weights
+  resources :kegs
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
