@@ -29,7 +29,7 @@ jQuery ->
       }
     },
     series: [{
-        name: "Raw Weight"
+        name: "Pints"
         data: chart_data
       }]
     credits: false
