@@ -8,7 +8,7 @@ class Weight < ActiveRecord::Base
     # It currently equals 6 pints which is deceptively low
 
     # get this from Keg object in future
-    keg_gal = 5.16
+    keg_gal = 5.20
     weight_raw_full = 414.18
     #zero is b from calibration linear fit minus 1/2 variance, so 291 - 3
     b = 291 - 3
