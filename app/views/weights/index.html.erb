@@ -55,7 +55,7 @@
   // chart data is for highcharts. data now in pints
   <%
     weight_now = Weight.new
-    weight_now.keg = @weight_data_info.keg_id
+    weight_now.keg_id = @weight_data_info.keg_id
     weight_now.raw = @weight_data_info.last_stored_raw
     pints_now = weight_now.get_beer_count.to_s
   %>
