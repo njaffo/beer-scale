@@ -1,6 +1,7 @@
 <%
    start_weight = Weight.new
    start_weight.raw = @keg.start_raw
+   start_weight.keg_id = @keg.id
    pints_full = start_weight.get_beer_count.to_s
 %>
 
