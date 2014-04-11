@@ -11,6 +11,7 @@ class WeightsController < ApplicationController
     # @weights = Weight.where("created_at > '2014-04-09'")
     @weights = Weight.where("keg_id = ?", @weight_data_info.keg_id).order(:created_at)
     @weights_last = Weight.last(25)
+    @keg = Keg.find(@weight_data_info.keg_id)
   end
 
   # GET /weights/1

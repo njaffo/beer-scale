@@ -5,6 +5,8 @@
     <tr>
       <th>Name</th>
       <th>Gallons</th>
+      <th>Started</th>
+      <th>Ended</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +18,8 @@
       <tr>
         <td><%= keg.name %></td>
         <td><%= keg.volume %></td>
+        <td><%= keg.start_date %></td>
+        <td><%= keg.end_date %></td>
         <td><%= link_to 'Show', keg %></td>
         <td><%= link_to 'Edit', edit_keg_path(keg) %></td>
         <td><%= link_to 'Destroy', keg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
