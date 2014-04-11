@@ -7,8 +7,8 @@ class KegsController < ApplicationController
     @kegs = Keg.all
     unless @keg.nil?
       @weights_by_keg = Weight.where("keg_id = ?", params[:id]).order(:created_at)
+      logger.info("  ----  weights_by_keg.length: "+ @weights_by_keg.length)
     end
-
   end
 
   # GET /kegs/1
