@@ -9,7 +9,7 @@ class WeightsController < ApplicationController
   def index
     # @weights = Weight.all
     # @weights = Weight.where("created_at > '2014-04-09'")
-    @weights = Weight.where("created_at > '2014-04-09'").order(:created_at)
+    @weights = Weight.where("keg_id = ?", @weight_data_info.keg_id).order(:created_at)
     @weights_last = Weight.last(25)
   end
 
@@ -33,6 +33,7 @@ class WeightsController < ApplicationController
     p params
     p request.raw_post
     @weight = Weight.new(weight_params)
+    @weight.keg = @weight_data_info.keg_id
 
     respond_to do |format|
       #if @weight.save
