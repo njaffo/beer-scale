@@ -5,6 +5,10 @@ class KegsController < ApplicationController
   # GET /kegs.json
   def index
     @kegs = Keg.all
+    unless keg.nil?
+      @weights_by_keg = Weight.where("keg_id = ?", params[:id]).order(:created_at)
+    end
+
   end
 
   # GET /kegs/1
