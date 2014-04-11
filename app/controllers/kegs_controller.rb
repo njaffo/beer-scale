@@ -5,6 +5,11 @@ class KegsController < ApplicationController
   # GET /kegs.json
   def index
     @kegs = Keg.all
+  end
+
+  # GET /kegs/1
+  # GET /kegs/1.json
+  def show
     if @keg.nil?
       @weights_by_keg = []
       logger.info("  ---- keg is nil in index method")
@@ -13,11 +18,6 @@ class KegsController < ApplicationController
       logger.info("  ----  weights_by_keg.length: "+ @weights_by_keg.length.to_s)
     end
     logger.info(@weights_by_keg.length.to_s)
-  end
-
-  # GET /kegs/1
-  # GET /kegs/1.json
-  def show
   end
 
   # GET /kegs/new
