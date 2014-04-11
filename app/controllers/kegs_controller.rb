@@ -6,12 +6,13 @@ class KegsController < ApplicationController
   def index
     @kegs = Keg.all
     if @keg.nil?
+      @weights_by_keg = []
       logger.info("  ---- keg is nil in index method")
-    end
-    unless @keg.nil?
+    else
       @weights_by_keg = Weight.where("keg_id = ?", params[:id]).order(:created_at)
-      logger.info("  ----  weights_by_keg.length: "+ @weights_by_keg.length)
+      logger.info("  ----  weights_by_keg.length: "+ @weights_by_keg.length.to_s)
     end
+    logger.info(@weights_by_keg.length.to_s)
   end
 
   # GET /kegs/1
