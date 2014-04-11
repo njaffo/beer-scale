@@ -26,6 +26,5 @@ class Weight < ActiveRecord::Base
     # weight_raw_full = m * keg_gal * lbs_h2o + b
     pints_consumed = ((weight_raw_full - self.raw) * pint_per_gal) / (m * lbs_h2o)
     beer_count = pints_full - pints_consumed
-    beer_count
   end
 end

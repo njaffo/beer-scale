@@ -34,7 +34,7 @@ class WeightsController < ApplicationController
     p params
     p request.raw_post
     @weight = Weight.new(weight_params)
-    @weight.keg = @weight_data_info.keg_id
+    @weight.keg_id = @weight_data_info.keg_id
 
     respond_to do |format|
       #if @weight.save
