@@ -1,26 +1,32 @@
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Gallons</th>
-    <th>Started</th>
-    <th>Finished</th>
-    <th># Pints Full</th>
-    <th># Pints Left</th>
-  </tr>
-  </thead>
 <%
-  start_weight = Weight.new
-  start_weight.raw = @keg.start_raw
-  pints_full = start_weight.get_beer_count.to_s
+   start_weight = Weight.new
+   start_weight.raw = @keg.start_raw
+   pints_full = start_weight.get_beer_count.to_s
 %>
+<table>
   <tbody>
     <tr>
+      <th>Name</th>
       <td><%= @keg.name %></td>
+    </tr>
+    <tr>
+      <th>Gallons</th>
       <td><%= @keg.volume %></td>
+    </tr>
+    <tr>
+      <th>Started</th>
       <td><%= @keg.start_date %></td>
+    </tr>
+    <tr>
+      <th>Finished</th>
       <td><%= @keg.end_date %></td>
+    </tr>
+    <tr>
+      <th># Pints Full</th>
       <td><%= pints_full %></td>
+    </tr>
+    <tr>
+      <th># Pints Left</th>
       <td></td>
     </tr>
   </tbody>
