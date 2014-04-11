@@ -72,7 +72,7 @@ class KegsController < ApplicationController
       if @keg.nil?
         logger.info("  ---- Keg is nil")
       else
-        logger.info("keg id: "+ @keg.id)
+        logger.info("keg id: "+ @keg.id.to_s)
       end
 
     end
