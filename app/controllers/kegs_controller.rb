@@ -69,6 +69,12 @@ class KegsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_keg
       @keg = Keg.find(params[:id])
+      if @keg.nil?
+        logger.info("  ---- Keg is nil")
+      else
+        logger.info("keg id: "+ @keg.id)
+      end
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
