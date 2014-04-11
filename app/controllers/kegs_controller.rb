@@ -69,6 +69,6 @@ class KegsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def keg_params
-      params[:keg]
+      params[:keg].permit(:name, :volume, :start_raw, :end_raw, :zero_raw, :start_date, :end_date)
     end
 end
