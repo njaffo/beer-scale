@@ -5,6 +5,9 @@ class KegsController < ApplicationController
   # GET /kegs.json
   def index
     @kegs = Keg.all
+    if @keg.nil?
+      logger.info("  ---- keg is nil in index method")
+    end
     unless @keg.nil?
       @weights_by_keg = Weight.where("keg_id = ?", params[:id]).order(:created_at)
       logger.info("  ----  weights_by_keg.length: "+ @weights_by_keg.length)
@@ -69,12 +72,6 @@ class KegsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_keg
       @keg = Keg.find(params[:id])
-      if @keg.nil?
-        logger.info("  ---- Keg is nil")
-      else
-        logger.info("keg id: "+ @keg.id.to_s)
-      end
-
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
