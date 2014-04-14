@@ -6,6 +6,8 @@ BeerScale::Application.routes.draw do
   resources :weights
   resources :kegs
 
+  get "beer_api/beer_now" => "beer_api#beer_now"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
