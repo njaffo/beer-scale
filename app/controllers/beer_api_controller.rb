@@ -1,4 +1,4 @@
-class BeerApiController
+class BeerApiController < ApplicationController
 
   def beer_now
     @json_weight = Weight.last
