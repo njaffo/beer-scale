@@ -19,7 +19,13 @@
    weight_last_recd.created_at = @weight_data_info.last_received_created_at
    last_received_pints = weight_last_recd.get_beer_count
 %>
+<br>
 <table>
+  <thead>
+    <th>Item</th>
+    <th>Pints</th>
+    <th>Data/Time</th>
+  </thead>
   <tbody>
   <tr>
     <td>Last data point received: </td>
