@@ -6,17 +6,30 @@
 <div id="weights_chart">
 </div>
 
+<%
+   weight_last_stored = Weight.new
+   weight_last_stored.keg_id = @weight_data_info.keg_id
+   weight_last_stored.raw = @weight_data_info.last_stored_raw
+   weight_last_stored.created_at = @weight_data_info.last_stored_created_at
+   last_stored_pints = weight_last_stored.get_beer_count
+
+   weight_last_recd = Weight.new
+   weight_last_recd.keg_id = @weight_data_info.keg_id
+   weight_last_recd.raw = @weight_data_info.last_received_raw
+   weight_last_recd.created_at = @weight_data_info.last_received_created_at
+   last_received_pints = weight_last_recd.get_beer_count
+%>
 <table>
   <tbody>
   <tr>
     <td>Last data point received: </td>
-    <td><%= @weight_data_info.last_received_raw %></td>
-    <td><%= @weight_data_info.last_received_created_at %></td>
+    <td><%= last_received_pints %></td>
+    <td><%= weight_last_recd.created_at %></td>
   </tr>
   <tr>
     <td>Last data point stored: </td>
-    <td><%= @weight_data_info.last_stored_raw %></td>
-    <td><%= @weight_data_info.last_stored_created_at %></td>
+    <td><%= last_stored_pints %></td>
+    <td><%= weight_last_stored.created_at %></td>
   </tr>
   <tr>
     <td>The time is now: </td>
@@ -28,11 +41,5 @@
 
 <script>
   // chart data is for highcharts. data now in pints
-  <%
-    weight_now = Weight.new
-    weight_now.keg_id = @weight_data_info.keg_id
-    weight_now.raw = @weight_data_info.last_stored_raw
-    pints_now = weight_now.get_beer_count.to_s
-  %>
-  var chart_data = [<%= @weights.map { |w| "["+w.created_at.to_i.to_s+"000,"+w.get_beer_count.to_s+"]" }.join(',') %>,[<%= Time.now.to_i.to_s %>000,<%= pints_now %>]]
+  var chart_data = [<%= @weights.map { |w| "["+w.created_at.to_i.to_s+"000,"+w.get_beer_count.to_s+"]" }.join(',') %>,[<%= Time.now.to_i.to_s %>000,<%= last_stored_pints %>]]
 </script>
