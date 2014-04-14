@@ -1,4 +1,38 @@
-<h2>Beer Scale!</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+<h1><%= @keg.name %></h1>
+<br><br>
+
+<h2>How many beers are in the keg?</h2>
+
+<div id="weights_chart">
+</div>
+
+<table>
+  <tbody>
+  <tr>
+    <td>Last data point received: </td>
+    <td><%= @weight_data_info.last_received_raw %></td>
+    <td><%= @weight_data_info.last_received_created_at %></td>
+  </tr>
+  <tr>
+    <td>Last data point stored: </td>
+    <td><%= @weight_data_info.last_stored_raw %></td>
+    <td><%= @weight_data_info.last_stored_created_at %></td>
+  </tr>
+  <tr>
+    <td>The time is now: </td>
+    <td></td>
+    <td><%= Time.now %></td>
+  </tr>
+  </tbody>
+</table>
+
+<script>
+  // chart data is for highcharts. data now in pints
+  <%
+    weight_now = Weight.new
+    weight_now.keg_id = @weight_data_info.keg_id
+    weight_now.raw = @weight_data_info.last_stored_raw
+    pints_now = weight_now.get_beer_count.to_s
+  %>
+  var chart_data = [<%= @weights.map { |w| "["+w.created_at.to_i.to_s+"000,"+w.get_beer_count.to_s+"]" }.join(',') %>,[<%= Time.now.to_i.to_s %>000,<%= pints_now %>]]
+</script>
