@@ -10,7 +10,7 @@ class WeightsController < ApplicationController
     # @weights = Weight.all
     # @weights = Weight.where("created_at > '2014-04-09'")
     @weights = Weight.where("keg_id = ?", @weight_data_info.keg_id).order(:created_at)
-    @weights_last = Weight.last(25)
+    @weights_last = Weight.last(50).order(created_at: :desc)
     @keg = Keg.find(@weight_data_info.keg_id)
   end
 
