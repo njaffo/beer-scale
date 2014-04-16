@@ -1,7 +1,7 @@
 class WeightDataFeedInfosController < ApplicationController
 
-  before_action :load_weight_data_feed_info, only: [:index, :edit]
-  before_action :set_weight_data_feed_info, only: [:edit, :update]
+  before_action :load_weight_data_feed_info, only: [:index]
+  before_action :set_weight_data_feed_info, only: [:edit, :update, :show]
 
   def new
   end

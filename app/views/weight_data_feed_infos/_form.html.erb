@@ -1,11 +1,11 @@
-<%= form_for(@weight_data_info) do |f| %>
+<%= form_for(@weight_data_feed_info) do |f| %>
 <div class="row">
-  <% if @weight_data_info.errors.any? %>
+  <% if @weight_data_feed_info.errors.any? %>
     <div id="error_explanation small-8 columns">
-      <h2><%= pluralize(@weight_data_info.errors.count, "error") %> prohibited this weight_data_info from being saved:</h2>
+      <h2><%= pluralize(@weight_data_feed_info.errors.count, "error") %> prohibited this weight_data_feed_info from being saved:</h2>
 
       <ul>
-      <% @weight_data_info.errors.full_messages.each do |msg| %>
+      <% @weight_data_feed_info.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
