@@ -1,6 +1,7 @@
 class WeightDataFeedInfosController < ApplicationController
 
   before_action :load_weight_data_feed_info, only: [:index, :edit]
+  before_action :set_weight_data_feed_info, only: [:edit, :update]
 
   def new
   end
@@ -10,10 +11,26 @@ class WeightDataFeedInfosController < ApplicationController
   end
 
   def edit
+  end
 
+  def update
+    respond_to do |format|
+      if @weight_data_feed_info.update(keg_params)
+        format.html { redirect_to @weight_data_feed_info, notice: 'Weight Datafeed Info was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @weight_data_feed_info.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
+
+  def set_weight_data_feed_info
+    @weight_data_feed_info = WeightDataFeedInfo.first
+  end
+
   def weight_data_feed_info_params
     params.require(:weight_data_feed_info).permit(:last_received_raw, :last_received_created_at, :last_stored_raw, :last_stored_created_at, :keg_id)
   end
