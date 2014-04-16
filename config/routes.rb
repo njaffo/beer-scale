@@ -1,10 +1,11 @@
 BeerScale::Application.routes.draw do
 
-  get "weight_data_feed_infos/new"
+  # get "weight_data_feed_infos/new"
   root "home#index"
 
   resources :weights
   resources :kegs
+  resources :weight_data_feed_infos
 
   get "beer_api/beer_now" => "beer_api#beer_now"
 

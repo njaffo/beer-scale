@@ -1,0 +1,29 @@
+<h1>Weight DataFeed Info</h1>
+<br><br>
+<table>
+  <tbody>
+  <tr>
+    <th>Keg Id</th>
+    <td><%= @weight_data_info.keg_id %></td>
+  </tr>
+  <tr>
+    <th>Last Stored Raw</th>
+    <td><%= @weight_data_info.last_stored_raw %></td>
+  </tr>
+  <tr>
+    <th>Started</th>
+    <td><%= @weight_data_info.last_stored_created_at %></td>
+  </tr>
+  <tr>
+    <th>Last Received Raw</th>
+    <td><%= @weight_data_info.last_received_raw %></td>
+  </tr>
+  <tr>
+    <th>Last Received Create By</th>
+    <td><%= @weight_data_info.last_received_created_at %></td>
+  </tr>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Edit', edit_weight_data_feed_info_path(@keg) %>
