@@ -15,7 +15,7 @@ class WeightDataFeedInfosController < ApplicationController
 
   def update
     respond_to do |format|
-      if @weight_data_feed_info.update(keg_params)
+      if @weight_data_feed_info.update(weight_data_feed_info_params)
         format.html { redirect_to @weight_data_feed_info, notice: 'Weight Datafeed Info was successfully updated.' }
         format.json { head :no_content }
       else
