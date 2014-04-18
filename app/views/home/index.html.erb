@@ -1,11 +1,3 @@
-<h1><%= @keg.name %></h1>
-<br><br>
-
-<h2>How many beers are in the keg?</h2>
-
-<div id="weights_chart">
-</div>
-
 <%
    weight_last_stored = Weight.new
    weight_last_stored.keg_id = @weight_data_info.keg_id
@@ -19,6 +11,16 @@
    weight_last_recd.created_at = @weight_data_info.last_received_created_at
    last_received_pints = weight_last_recd.get_beer_count
 %>
+<h1><%= @keg.name %></h1>
+<h3><%= @keg.abv %>% ABV</h3>
+<h4><%= link_to("More Info", @keg.info_link) %></h4>
+<br>
+
+<h2><%= last_received_pints.round(1) %> pints are left!</h2>
+
+<div id="weights_chart">
+</div>
+
 <br>
 <table>
   <thead>
