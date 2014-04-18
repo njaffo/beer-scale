@@ -2,6 +2,7 @@ class WeightDataFeedInfosController < ApplicationController
 
   before_action :load_weight_data_feed_info, only: [:index]
   before_action :set_weight_data_feed_info, only: [:edit, :update, :show]
+  before_action :datafeed_active
 
   def new
   end
@@ -46,5 +47,9 @@ class WeightDataFeedInfosController < ApplicationController
       @weight_data_info.last_received_created_at = weight_last.created_at
       @weight_data_info.save
     end
+  end
+
+  def datafeed_active
+    @datafeed_active = "active"
   end
 end

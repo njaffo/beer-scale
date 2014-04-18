@@ -3,6 +3,7 @@ class WeightsController < ApplicationController
   before_action :load_weight_data_feed_info
   before_action :set_weight, only: [:show, :edit, :update, :destroy]
   protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/json' }
+  before_action :weights_active
 
   # GET /weights
   # GET /weights.json
@@ -117,6 +118,10 @@ class WeightsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def weight_params
       params.require(:weight).permit(:raw, :keg_id)
+    end
+
+    def weights_active
+      @weights_active = "active"
     end
 
 end

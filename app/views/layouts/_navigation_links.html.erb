@@ -1,5 +1,10 @@
 <%# add navigation links to this file %>
-<li class="active"><a href="#">Active Section</a></li>
-<li><%= link_to 'Kegs', kegs_path %></li>
-<li><%= link_to 'Weights', weights_path %></li>
-<li><%= link_to 'DataFeed Info', weight_data_feed_infos_path %></li>
+<li class="<%= @kegs_active %>">
+  <%= link_to 'Kegs', kegs_path %>
+</li>
+<li class="<%= @weights_active %>">
+  <%= link_to 'Weights', weights_path %>
+</li>
+<li class="<%= @datafeed_active %>">
+  <%= link_to 'DataFeed Info', weight_data_feed_infos_path %>
+</li>

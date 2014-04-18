@@ -1,5 +1,6 @@
 class KegsController < ApplicationController
   before_action :set_keg, only: [:show, :edit, :update, :destroy]
+  before_action :keg_active
 
   # GET /kegs
   # GET /kegs.json
@@ -78,5 +79,9 @@ class KegsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def keg_params
       params[:keg].permit(:name, :volume, :abv, :info_link, :start_raw, :end_raw, :zero_raw, :start_date, :end_date)
+    end
+
+    def keg_active
+      @kegs_active = "active"
     end
 end
