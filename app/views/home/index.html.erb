@@ -31,12 +31,12 @@
   <tbody>
   <tr>
     <td>Last data point received: </td>
-    <td><%= last_received_pints %></td>
+    <td><%= last_received_pints.round(1) %></td>
     <td><%= weight_last_recd.created_at %></td>
   </tr>
   <tr>
     <td>Last data point stored: </td>
-    <td><%= last_stored_pints %></td>
+    <td><%= last_stored_pints.round(1) %></td>
     <td><%= weight_last_stored.created_at %></td>
   </tr>
   <tr>
