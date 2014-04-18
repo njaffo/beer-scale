@@ -36,17 +36,17 @@
   <tr>
     <td>Last data point received: </td>
     <td><%= last_received_pints.round(1) %></td>
-    <td><%= weight_last_recd.created_at %></td>
+    <td><%= weight_last_recd.created_at.to_s(:beer) %></td>
   </tr>
   <tr>
     <td>Last data point stored: </td>
     <td><%= last_stored_pints.round(1) %></td>
-    <td><%= weight_last_stored.created_at %></td>
+    <td><%= weight_last_stored.created_at.to_s(:beer) %></td>
   </tr>
   <tr>
     <td>The time is now: </td>
     <td></td>
-    <td><%= Time.now %></td>
+    <td><%= Time.now.to_s(:beer) %></td>
   </tr>
   </tbody>
 </table>
