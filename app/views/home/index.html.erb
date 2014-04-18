@@ -1,3 +1,7 @@
+<% content_for :head do %>
+ <meta http-equiv="refresh" content="30">
+<% end %>
+
 <%
    weight_last_stored = Weight.new
    weight_last_stored.keg_id = @weight_data_info.keg_id
