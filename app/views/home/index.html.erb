@@ -46,7 +46,7 @@
   <tr>
     <td>The time is now: </td>
     <td></td>
-    <td><%= Time.now.to_s(:beer) %></td>
+    <td><%= Time.now.in_time_zone.to_s(:beer) %></td>
   </tr>
   </tbody>
 </table>
