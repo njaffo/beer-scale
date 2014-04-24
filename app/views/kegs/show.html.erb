@@ -3,6 +3,8 @@
    start_weight.raw = @keg.start_raw
    start_weight.keg_id = @keg.id
    pints_full = start_weight.get_beer_count.to_s
+   last_weight = @weights_by_keg.last
+   pints_left = last_weight.get_beer_count.to_s()
 %>
 
 <h1><%= @keg.name %></h1>
@@ -42,7 +44,7 @@
     </tr>
     <tr>
       <th># Pints Left</th>
-      <td></td>
+      <td><%= '%.1f' % pints_left %></td>
     </tr>
   </tbody>
 </table>
