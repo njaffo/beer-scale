@@ -6,6 +6,7 @@ BeerScale::Application.routes.draw do
 
   resources :weights
   resources :kegs
+  resources :events
   resources :weight_data_feed_infos
 
   get "beer_api/beer_now" => "beer_api#beer_now"

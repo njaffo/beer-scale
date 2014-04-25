@@ -20,7 +20,8 @@ jQuery ->
       dateTimeLabelFormats: {
         month: '%e. %b',
         year: '%b'
-      }
+      },
+      plotLines : plot_line_data
     },
     yAxis: {
       min: 0,
