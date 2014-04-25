@@ -11,20 +11,18 @@
       <th>Ended</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @kegs.each do |keg| %>
       <tr>
-        <td><%= keg.name %></td>
+        <td><%= link_to keg.name, keg %></td>
         <td><%= keg.volume %></td>
         <td><%= keg.abv %>%</td>
         <td><%= link_to("More Info", keg.info_link) %></td>
         <td><%= keg.start_date.strftime(BEERTIME_FORMAT) if keg.start_date %></td>
         <td><%= keg.end_date.strftime(BEERTIME_FORMAT) if keg.end_date %></td>
-        <td><%= link_to 'Show', keg %></td>
         <td><%= link_to 'Edit', edit_keg_path(keg) %></td>
         <td><%= link_to 'Destroy', keg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
