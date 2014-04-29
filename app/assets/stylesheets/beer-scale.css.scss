@@ -1,6 +1,7 @@
-// Place all the styles related to the weights controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+form label {
+  color: $palegrey;
+}
 
 #weights_chart {
   width: 700px;
