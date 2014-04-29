@@ -87,4 +87,17 @@
 <script>
   // chart data is for highcharts. data now in pints
   var chart_data = [<%= @weights.map { |w| "["+w.created_at.to_i.to_s+"000,"+w.get_beer_count.to_s+"]" }.join(',') %>,[<%= Time.now.to_i.to_s %>000,<%= last_stored_pints %>]]
+  var plot_line_data = [
+      <% @events_by_keg.each() do |event| %>
+      {
+          value: <%= event.day.to_time.to_i.to_s + "000" %>,
+          color: 'red', // Color value
+          dashStyle: 'longdashdot', // Style of the plot line. Default to solid
+          width: '2', // Width of the line
+          label: {
+              text: "<%= event.title.html_safe%>"
+          }
+      },
+      <% end %>
+  ];
 </script>

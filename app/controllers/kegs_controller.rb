@@ -13,10 +13,17 @@ class KegsController < ApplicationController
   def show
     if @keg.nil?
       @weights_by_keg = []
+      @events_by_keg  = []
       logger.info("  ---- keg is nil in index method")
     else
       @weights_by_keg = Weight.where("keg_id = ?", params[:id]).order(:created_at)
       logger.info("  ----  weights_by_keg.length: "+ @weights_by_keg.length.to_s)
+      if(!@keg.end_date)
+        @events_by_keg = Event.where("day > ?", @keg.start_date)
+      else
+        @events_by_keg = Event.where("day > ? AND day < ?", @keg.start_date, @keg.end_date)
+      end
+      logger.info("  ----  events_by_keg: "+ @events_by_keg.to_s)
     end
     logger.info(@weights_by_keg.length.to_s)
   end

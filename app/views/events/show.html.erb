@@ -1,0 +1,18 @@
+
+<h1><%= @event.title %></h1>
+<table>
+  <tbody>
+    <tr>
+      <th>Title</th>
+      <td><%= @event.title %></td>
+    </tr>
+    <tr>
+      <th>Day</th>
+      <td><%= @event.day %></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
