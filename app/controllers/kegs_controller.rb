@@ -1,4 +1,5 @@
 class KegsController < ApplicationController
+  before_action :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_keg, only: [:show, :edit, :update, :destroy]
   before_action :keg_active
 
