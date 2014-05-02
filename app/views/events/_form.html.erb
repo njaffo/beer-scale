@@ -23,10 +23,26 @@
     </div>
     <div class="row">
       <div class="small-3 columns">
-        <%= f.label :day, class: "right inline" %>
+        <%= f.label :description, class: "right inline" %>
       </div>
       <div class="small-9 columns">
-        <%= f.date_select :day %>
+        <%= f.text_field :description %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-3 columns">
+        <%= f.label :start, class: "right inline" %>
+      </div>
+      <div class="small-9 columns">
+        <%= f.datetime_select :start%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-3 columns">
+        <%= f.label :end, class: "right inline" %>
+      </div>
+      <div class="small-9 columns">
+        <%= f.datetime_select :end%>
       </div>
     </div>
   </div>

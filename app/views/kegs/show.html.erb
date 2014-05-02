@@ -74,15 +74,21 @@
 <script>
   // chart data is for highcharts. data now in pints
     var chart_data = [<%= @weights_by_keg.map { |w| "["+w.created_at.to_i.to_s+"000,"+w.get_beer_count.to_s+"]" }.join(',') %>];
-    var plot_line_data = [
+    var plot_band_data = [
         <% @events_by_keg.each() do |event| %>
         {
-            value: <%= event.day.to_time.to_i.to_s + "000" %>,
-            color: 'red', // Color value
-            dashStyle: 'longdashdot', // Style of the plot line. Default to solid
-            width: '2', // Width of the line
+          from: <%= event.start.to_time.to_i.to_s + "000" %>,
+            to: <%= event.end.to_time.to_i.to_s + "000" %>,
+            color: '#FCFFC5', // Color value
             label: {
-                text: "<%= event.title.html_safe%>"
+                text: "<%= event.title.html_safe%>",
+//                verticalAlign: middle,
+//                rotation: 90,
+//                x: -10,
+//                y: 20,
+                style: {
+                    fontWeight: 'bold'
+                }
             }
         },
         <% end %>

@@ -18,9 +18,9 @@ class KegsController < ApplicationController
     else
       @weights_by_keg = Weight.includes(:keg).where("keg_id = ?", params[:id]).order(:created_at)
       if(!@keg.end_date)
-        @events_by_keg = Event.where("day > ?", @keg.start_date)
+        @events_by_keg = Event.where("start > ?", @keg.start_date)
       else
-        @events_by_keg = Event.where("day > ? AND day < ?", @keg.start_date, @keg.end_date)
+        @events_by_keg = Event.where("start > ? AND start < ?", @keg.start_date, @keg.end_date)
       end
     end
   end
