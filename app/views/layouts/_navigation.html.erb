@@ -2,11 +2,17 @@
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name"><h1><%= link_to 'Home', root_path %></h1></li>
+    <li class="name">
+      <% if admin_signed_in? %>
+        Logged in as <strong><%= current_admin.email %></strong>.
+        <br><%= link_to "Logout", destroy_admin_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Login", new_admin_session_path, :class => 'navbar-link'  %>
+      <% end %>
+    </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
   <div class="top-bar-section">
-    <ul class="right">
-      <%= render 'layouts/navigation_links' %>
-    </ul>
+     <ul class="right"><%= render 'layouts/navigation_links' %></ul>
   </div>
 </nav>

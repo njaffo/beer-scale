@@ -4,6 +4,8 @@ BeerScale::Application.routes.draw do
   # get "weight_data_feed_infos/new"
   root "home#index"
 
+  match 'weights.json', to: 'weights#create_json', via: [:post]
+
   resources :weights
   resources :kegs
   resources :events

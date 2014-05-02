@@ -1,5 +1,5 @@
 class WeightDataFeedInfosController < ApplicationController
-
+  before_action :authenticate_admin!, only: [:new, :edit, :update]
   before_action :load_weight_data_feed_info, only: [:index]
   before_action :set_weight_data_feed_info, only: [:edit, :update, :show]
   before_action :datafeed_active
